@@ -2,10 +2,6 @@
 
 Library made for testing.
 
-## Download
-
-Download command - ```pip install MazgaDB==1.0.0```
-
 ## Import
 
 You can use 2 types of imports: ```from MazgaDB import MazgaDB``` or ```import MazgaDB.MazgaDB```
