@@ -3,6 +3,9 @@
 Library made for testing.
 All code is taken from file example.py (Весь код взят из файла example.py)
 The library folder itself ```MazgaDB/__init__.py``` (Исходник библиотеки ```MazgaDB/__init__.py```)
+
+## Install
+To download the library write to the terminal ```pip install MazgaDB```
 ## Import
 
 You can use 2 types of imports: ```from MazgaDB import MazgaDB``` or ```import MazgaDB.MazgaDB```
