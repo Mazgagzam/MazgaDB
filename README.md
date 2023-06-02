@@ -1,14 +1,10 @@
 # Documentation MazgaDB
 
 Library made for testing.
-All code is taken from file example.py (Весь код взят из файла example.py)
-The library folder itself ```MazgaDB/__init__.py``` (Исходник библиотеки ```MazgaDB/__init__.py```)
 
-## Install
-To download the library write to the terminal ```pip install MazgaDB```
 ## Import
 
-You can use 2 types of imports: ```from MazgaDB import MazgaDB``` or ```import MazgaDB.MazgaDB```
+You can use 2 types of imports: ```from mazga_db import MazgaDB``` or ```import mazga_db.MazgaDB```
 
 ## Class
 | Field | Type     | Description |
@@ -43,7 +39,7 @@ Accepts data type only from ```sqlite3```
 
 #### Example: 
 ```
-from MazgaDB import MazgaDB
+from mazga_db import MazgaDB
 db = MazgaDB('users.db')
 db.create_table('users',{'id':'INT', 'fname':'TEXT'})
 ```
@@ -200,6 +196,10 @@ db.select('users', key = 'id', value = '1')
 #### Description
 Returns values as a class
 
+If the class is not passed will take the class from data_classes (```{'name_table': class...}```), 
+
+If the class is not passed and not in dataclasses, will return a class with data, with class name ```name_table.title()``` 
+
 #### Example1:
 ```
 db = MazgaDB('users.db')
@@ -219,7 +219,17 @@ db.select_class('users', key = 'id', value = '1')
 #### Output2:
 ```
 People(id = 1, fname = 'Mazga')
+``` 
+
+#### Example3:
 ```
+db = MazgaDB('users.db')
+db.select_class('users', key = 'id', value = '1')
+```
+#### Output3:
+```
+Users(id = 1, fname = 'Mazga')
+``` 
 
 ### read_table
 
@@ -227,10 +237,11 @@ People(id = 1, fname = 'Mazga')
 | Field | Type     | Description |
 |-------|----------|---------|
 | name_table     | ```str```     | table name     |
-| param | ```list```      | column name |
+| type | ```str```      | type table |
 
 #### Description 
 Returns a table of characters
+There are only two types ```'s'```(string table) and ```'m'``` (Markdown table). If the wrong type is entered it will raise an error
 
 #### Example1:
 ```
@@ -242,17 +253,6 @@ db.read_table('users')
 | id    | fname     |
 |-------|----------|
 | 1     | Mazga   |
-
-#### Example2:
-```
-db = MazgaDB('users.db')
-db.read_table('users', ['id'])
-```
-#### Output2:
-
-| id    |
-|-------|
-| 1     |
 
 ### saw_tables
 
