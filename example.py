@@ -50,3 +50,4 @@ print(db.read_table("users"))
 print(db.saw_tables())
 
 print(db.execute("SELECT * FROM users"))
+"GOOD"
