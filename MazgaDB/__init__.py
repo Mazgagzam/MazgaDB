@@ -17,12 +17,12 @@ class MazgaDB:
         gender TEXT);
         """
         self.execute(
-            f"""CREATE TABLE IF NOT EXISTS {name_table}({','.join([t + ' ' + param[t] for t in param])});"""
+            f"""CREATE TABLE IF NOT EXISTS {name_table}({','.join([f'{t} {param[t]}' for t in param])});"""
         )
 
     def append_line(self, name_table: str, values: list):
         self.execute(
-            f"""INSERT INTO {name_table} VALUES({','.join(['"' + str(t) + '"' for t in values])});"""
+            f"""INSERT INTO {name_table} VALUES({','.join([f'"{str(t)}"' for t in values])});"""
         )
 
     def update_line(
@@ -66,7 +66,7 @@ class MazgaDB:
 
     def is_there(self, name_table: str, key: str, value: str) -> bool:
         self.cur.execute(f"SELECT * FROM {name_table} WHERE {key} = {value}")
-        return True if len(self.cur.fetchall()) > 0 else False
+        return len(self.cur.fetchall()) > 0
 
     def read_table(self, name_table: str, param: list = None) -> str:
         try:
