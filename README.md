@@ -1,5 +1,5 @@
 # Documentation MazgaDB
-
+Теперь на русском
 Library made for testing.
 
 ## Import
