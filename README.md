@@ -3,7 +3,7 @@
 Library made for testing.
 
 ## Import
-
+OK
 You can use 2 types of imports: ```from mazga_db import MazgaDB``` or ```import mazga_db.MazgaDB```
 
 ## Class
